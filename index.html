@@ -1,1 +1,63 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hotel San José</title><style>body {    margin: 0;    font-family: Arial;    background: #f4f4f4;    transition: 0.3s;}.dark {    background: #121212;    color: white;}/* HEADER */header {    background: url('entrada_hotel.jpg') center/cover;    color: white;    text-align: center;    padding: 100px 20px;}/* NAV */nav {    background: black;    text-align: center;    padding: 10px;}nav a {    color: white;    margin: 10px;    text-decoration: none;}/* BOTÓN MODO OSCURO */.toggle {    position: fixed;    top: 10px;    right: 10px;    background: black;    color: white;    padding: 10px;    border-radius: 5px;    cursor: pointer;}/* CONTENIDO */.container {    max-width: 1100px;    margin: auto;    padding: 20px;}.card {    background: white;    padding: 20px;    margin: 20px 0;    border-radius: 10px;}/* CARRUSEL */.carousel img {    width: 100%;    border-radius: 10px;}/* FORMULARIO */input, select {    width: 100%;    padding: 10px;    margin: 10px 0;}/* BOTÓN */.btn {    background: #27ae60;    color: white;    padding: 12px;    border: none;    width: 100%;}/* WHATSAPP */.wpp {    position: fixed;    bottom: 20px;    right: 20px;    background: #25D366;    color: white;    padding: 15px;    border-radius: 50%;}/* FOOTER */footer {    background: #2c3e50;    color: white;    text-align: center;    padding: 10px;}</style></head><body><div class="toggle" onclick="modo()">??</div><header>    <h1>Hotel San José</h1>    <p>Lampazos de Naranjo, Nuevo León</p>    <p>Entrada principal y estacionamiento cubierto</p></header><nav>    <a href="#galeria">Galería</a>    <a href="#reserva">Reservar</a>    <a href="#opiniones">Opiniones</a></nav><div class="container"><!-- CARRUSEL --><section id="galeria"><div class="card"><h2>Galería</h2><div class="carousel"><img id="slider" src="entrada_hotel.jpg" alt="Entrada del Hotel San José"></div></div></section><!-- RESERVA --><section id="reserva"><div class="card"><h2>Reservar</h2><input type="text" id="nombre" placeholder="Tu nombre"><input type="date" id="entrada"><input type="date" id="salida"><select id="habitacion"><option>Sencilla</option><option>Doble</option></select><button class="btn" onclick="enviar()">Reservar por WhatsApp</button></div></section><!-- OPINIONES --><section id="opiniones"><div class="card"><h2>Opiniones</h2><p>????? "Muy limpio y cómodo"</p><p>????? "Excelente atención"</p><p>???? "Buen precio"</p></div></section></div><footer><p>© 2026 Hotel San José</p></footer><a href="https://wa.me/528671039731" class="wpp">??</a><script>// MODO OSCUROfunction modo(){    document.body.classList.toggle("dark");}// CARRUSELvar imagenes = ["entrada_hotel.jpg","habitacion_doble.jpg","zona_estar.jpg"];var i = 0;setInterval(()=>{    i = (i+1)%imagenes.length;    document.getElementById("slider").src = imagenes[i];    // Actualizar texto alternativo según la imagen    switch(imagenes[i]){        case "entrada_hotel.jpg":            document.getElementById("slider").alt = "Entrada del Hotel San José con estacionamiento cubierto";            break;        case "habitacion_doble.jpg":            document.getElementById("slider").alt = "Habitación doble del Hotel San José con dos camas";            break;        case "zona_estar.jpg":            document.getElementById("slider").alt = "Zona de estar del Hotel San José con televisor";            break;    }},3000);// WHATSAPPfunction enviar(){    var n = document.getElementById("nombre").value;    var e = document.getElementById("entrada").value;    var s = document.getElementById("salida").value;    var h = document.getElementById("habitacion").value;    var msg = "Reserva Hotel San José:%0A"    + "Nombre: "+n+"%0AEntrada: "+e+"%0ASalida: "+s+"%0AHabitación: "+h;    window.open("https://wa.me/528671039731?text="+msg);}</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hotel San JosÃ©</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+header {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.btn {
+    background: green;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Hotel San JosÃ©</h1>
+<p>Lampazos de Naranjo, Nuevo LeÃ³n</p>
+</header>
+
+<div class="container">
+
+<h2>Reservar</h2>
+
+<a href="https://wa.me/528671039731" class="btn">
+Reservar por WhatsApp
+</a>
+
+<a href="tel:8671039731" class="btn">
+Llamar ahora
+</a>
+
+<h2>UbicaciÃ³n</h2>
+
+<iframe src="https://maps.google.com/maps?q=Lampazos%20de%20Naranjo%20Nuevo%20Leon&output=embed"
+width="100%" height="300"></iframe>
+
+</div>
+
+</body>
+</html>
